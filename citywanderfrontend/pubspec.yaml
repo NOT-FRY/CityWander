@@ -1,0 +1,340 @@
+name: myapp
+description: A exported flutter project from FUNCTION12
+
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.2 <3.0.0'
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_screenutil: ^5.0.2
+  cupertino_icons: ^1.0.2
+  google_fonts: ^4.0.4
+  camera: ^0.10.5+7
+  permission_handler: ^11.0.1
+  webview_flutter: ^3.0.4
+  flutter_map: ^0.13.1
+  http: ^0.13.6
+  flutter_form_builder: ^8.0.0
+  flutter_secure_storage: ^9.0.0
+  image_picker: 0.7.5
+  cached_network_image: ^3.3.1
+  fluttertoast: ^8.2.4
+  geolocator: ^10.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "web/icons/CityWander_Logo.png"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/scene/images/vector.png
+    - assets/scene/images/vector-SH2.png
+    - assets/scene/images/vector-CZr.png
+    - assets/scene/images/icone.png
+    - assets/scene/images/vector-Lu2.png
+    - assets/scene/images/vector-wJL.png
+    - assets/scene/images/vector-6vx.png
+    - assets/scene/images/icone-rMA.png
+    - assets/scene/images/icone-Pfr.png
+    - assets/scene/images/vector-M2k.png
+    - assets/scene/images/icone-U8U.png
+    - assets/scene/images/icone-UkL.png
+    - assets/scene/images/vector-PRN.png
+    - assets/scene/images/vector-1qv.png
+    - assets/scene/images/icone-noE.png
+    - assets/scene/images/vector-x4k.png
+    - assets/scene/images/icone-V6c.png
+    - assets/scene/images/icone-g1J.png
+    - assets/scene/images/vector-vFe.png
+    - assets/scene/images/pricipe105x105-1.png
+    - assets/scene/images/vector-GuA.png
+    - assets/scene/images/icone-SaQ.png
+    - assets/scene/images/icone-Pyn.png
+    - assets/scene/images/icone-8S8.png
+    - assets/scene/images/icone-P6U.png
+    - assets/scene/images/icone-JAp.png
+    - assets/scene/images/icone-qvU.png
+    - assets/scene/images/vector-yWt.png
+    - assets/scene/images/icone-nur.png
+    - assets/scene/images/vector-2Uk.png
+    - assets/scene/images/icone-Kye.png
+    - assets/scene/images/vector-F24.png
+    - assets/scene/images/icone-NFn.png
+    - assets/scene/images/icone-Evg.png
+    - assets/scene/images/icone-Evg2.png
+    - assets/scene/images/icone-qRe.png
+    - assets/scene/images/vector-pR2.png
+    - assets/scene/images/pricipe105x105-1-yTa.png
+    - assets/scene/images/vector-jNC.png
+    - assets/scene/images/icone-rhi.png
+    - assets/scene/images/vector-Bjz.png
+    - assets/scene/images/icone-jZn.png
+    - assets/scene/images/icone-Hme.png
+    - assets/scene/images/vector-ucY.png
+    - assets/scene/images/icone-4VS.png
+    - assets/scene/images/vector-b7J.png
+    - assets/scene/images/icone-9gY.png
+    - assets/scene/images/icone-yun.png
+    - assets/scene/images/icone-o1e.png
+    - assets/scene/images/icone-Cc4.png
+    - assets/scene/images/icone-53a.png
+    - assets/scene/images/vector-kTn.png
+    - assets/scene/images/icone-YPe.png
+    - assets/scene/images/icone-vfW.png
+    - assets/scene/images/icone-bRv.png
+    - assets/scene/images/vector-Xt8.png
+    - assets/scene/images/icone-k9r.png
+    - assets/scene/images/vector-7HE.png
+    - assets/scene/images/rectangle-10-bg.png
+    - assets/scene/images/vector-Bkp.png
+    - assets/scene/images/pricipe105x105-1-C5r.png
+    - assets/scene/images/porcavacca-1.png
+    - assets/scene/images/pricipe105x105-1-FKJ.png
+    - assets/scene/images/rectangle-64-bg.png
+    - assets/scene/images/pricipe105x105-1-RrU.png
+    - assets/scene/images/pricipe105x105-1-xJ8.png
+    - assets/scene/images/vector-SHa.png
+    - assets/scene/images/frame-2060-bg-emS.png
+    - assets/scene/images/vector-fUp.png
+    - assets/scene/images/pricipe105x105-1-WWY.png
+    - assets/scene/images/vector-fLY.png
+    - assets/scene/images/vector-iep.png
+    - assets/scene/images/frame-2060-bg-aex.png
+    - assets/scene/images/rectangle-22-bg.png
+    - assets/scene/images/icone-NNQ.png
+    - assets/scene/images/vector-SF6.png
+    - assets/scene/images/vector-b7z.png
+    - assets/scene/images/icone-cSQ.png
+    - assets/scene/images/vector-NK6.png
+    - assets/scene/images/vector-AVr.png
+    - assets/scene/images/vector-sv4.png
+    - assets/scene/images/vector-8jW.png
+    - assets/scene/images/vector-oxY.png
+    - assets/scene/images/icone-Zgp.png
+    - assets/scene/images/icone-Kvt.png
+    - assets/scene/images/icone-tDJ.png
+    - assets/scene/images/icone-ouv.png
+    - assets/scene/images/frame-2060-bg-5k8.png
+    - assets/scene/images/icone-pJQ.png
+    - assets/scene/images/rectangle-57-bg.png
+    - assets/scene/images/pricipe105x105-1-TG8.png
+    - assets/scene/images/icone-Ckk.png
+    - assets/scene/images/icone-yqN.png
+    - assets/scene/images/vector-w1W.png
+    - assets/scene/images/vector-V32.png
+    - assets/scene/images/pricipe105x105-1-Czx.png
+    - assets/scene/images/icone-QLL.png
+    - assets/scene/images/vector-qwS.png
+    - assets/scene/images/frame-2060-bg.png
+    - assets/scene/images/icone-pD2.png
+    - assets/scene/images/vector-4dA.png
+    - assets/scene/images/frame-2060-bg-Qh2.png
+    - assets/scene/images/vector-pEx.png
+    - assets/scene/images/rectangle-10-bg-XSC.png
+    - assets/scene/images/frame-2060-bg-W3E.png
+    - assets/scene/images/icone-69r.png
+    - assets/scene/images/vector-gGU.png
+    - assets/scene/images/vector-H1N.png
+    - assets/scene/images/rectangle-10-bg-Kat.png
+    - assets/scene/images/vector-cVS.png
+    - assets/scene/images/frame-2060-bg-QJ8.png
+    - assets/scene/images/rectangle-10-bg-YCc.png
+    - assets/scene/images/icone-9TJ.png
+    - assets/scene/images/rectangle-25-bg.png
+    - assets/scene/images/frame-2065-bg.png
+    - assets/scene/images/vector-Pji.png
+    - assets/scene/images/rectangle-10-bg-xn8.png
+    - assets/scene/images/rectangle-61-bg.png
+    - assets/scene/images/rectangle-10-bg-9dE.png
+    - assets/scene/images/rectangle-10.png
+    - assets/scene/images/rectangle-57-bg-m64.png
+    - assets/scene/images/icone-qnU.png
+    - assets/scene/images/nettuno-1.png
+    - assets/scene/images/icone-6jW.png
+    - assets/scene/images/rectangle-59-bg.png
+    - assets/scene/images/pricipe105x105-1-nNQ.png
+    - assets/scene/images/vector-DhE.png
+    - assets/scene/images/icone-BjA.png
+    - assets/scene/images/icone-MGG.png
+    - assets/scene/images/progetto-senza-titolo-2-1.png
+    - assets/scene/images/rectangle-60-bg.png
+    - assets/scene/images/progetto-senza-titolo-2-1-2hA.png
+    - assets/scene/images/pricipe105x105-1-DFz.png
+    - assets/scene/images/icone-he4.png
+    - assets/scene/images/vector-7JL.png
+    - assets/scene/images/rectangle-58-bg.png
+    - assets/scene/images/rectangle-10-bg-3nC.png
+    - assets/scene/images/rectangle-58-bg-DJU.png
+    - assets/scene/images/rectangle-26-bg.png
+    - assets/scene/images/rectangle-61-bg-SAY.png
+    - assets/scene/images/rectangle-60-bg-JBv.png
+    - assets/scene/images/rectangle-58-bg-cdJ.png
+    - assets/scene/images/rectangle-61-bg-WvG.png
+    - assets/scene/images/rectangle-59-bg-fEk.png
+    - assets/scene/images/rectangle-23-bg.png
+    - assets/scene/images/rectangle-10-bg-SqA.png
+    - assets/scene/images/icone-5un.png
+    - assets/scene/images/rectangle-57-bg-2Sx.png
+    - assets/scene/images/pricipe105x105-1-zCk.png
+    - assets/scene/images/rectangle-61-bg-vg4.png
+    - assets/scene/images/rectangle-10-7C8.png
+    - assets/scene/images/vector-FJL.png
+    - assets/scene/images/rectangle-58-bg-3cQ.png
+    - assets/scene/images/rectangle-57-bg-ezg.png
+    - assets/scene/images/vector-vEg.png
+    - assets/scene/images/vector-ub2.png
+    - assets/scene/images/rectangle-58-bg-SZa.png
+    - assets/scene/images/vector-zqJ.png
+    - assets/scene/images/rectangle-11-bg.png
+    - assets/scene/images/rectangle-57-bg-isE.png
+    - assets/scene/images/ristorante-1.png
+    - assets/scene/images/frame-2060-bg-koW.png
+    - assets/scene/images/rectangle-10-J4L.png
+    - assets/scene/images/frame-2060-bg-ahr.png
+    - assets/scene/images/pricipe105x105-1-s4Y.png
+    - assets/scene/images/vector-NKN.png
+    - assets/scene/images/vector-mcQ.png
+    - assets/scene/images/rectangle-10-bg-vyz.png
+    - assets/scene/images/rectangle-10-4Hz.png
+    - assets/scene/images/rectangle-59-bg-kvp.png
+    - assets/scene/images/registrazione-utente-bg.png
+    - assets/scene/images/login-bg.png
+    - assets/scene/images/rectangle-61-bg-GFN.png
+    - assets/scene/images/rectangle-57-bg-x8k.png
+    - assets/scene/images/vieni-a-scoprire-le-nostra-1.png
+    - assets/scene/images/image-ricognition-bg.png
+    - assets/scene/images/vector-8XN.png
+    - assets/scene/images/rectangle-11-bg-f1W.png
+    - assets/scene/images/pricipe105x105-1-azx.png
+    - assets/scene/images/rectangle-1-bg.png
+    - assets/scene/images/vector-vCL.png
+    - assets/scene/images/rectangle-27-bg.png
+    - assets/scene/images/vector-BrL.png
+    - assets/scene/images/rectangle-24-bg.png
+    - assets/scene/images/rectangle-60-bg-iQ4.png
+    - assets/scene/images/remix-icons-line-system-arrow-down-s-line.png
+    - assets/scene/images/rectangle-59-bg-FgQ.png
+    - assets/scene/images/rectangle-60-bg-MkY.png
+    - assets/scene/images/rectangle-58-bg-mpG.png
+    - assets/scene/images/vector-Nsv.png
+    - assets/scene/images/vector-NMS.png
+    - assets/scene/images/remix-icons-line-system-arrow-down-s-line-46Q.png
+    - assets/scene/images/vector-yPa.png
+    - assets/scene/images/image-1.png
+    - assets/scene/images/frame-105.png
+    - assets/scene/images/vector-Se8.png
+    - assets/scene/images/rectangle-60-bg-CUc.png
+    - assets/scene/images/vector-WvY.png
+    - assets/scene/images/vector-5Fa.png
+    - assets/scene/images/vector-D2L.png
+    - assets/scene/images/seleziona-lingua-bg.png
+    - assets/scene/images/rectangle-60-bg-EUU.png
+    - assets/scene/images/rectangle-10-bg-iLt.png
+    - assets/scene/images/rectangle-11.png
+    - assets/scene/images/rectangle-59-bg-pyS.png
+    - assets/scene/images/vector-6fN.png
+    - assets/scene/images/vector-RXr.png
+    - assets/scene/images/vector-yQp.png
+    - assets/scene/images/vector-mg8.png
+    - assets/scene/images/vector-KfA.png
+    - assets/scene/images/vector-KfA.png
+    - assets/scene/images/vector-7Yp.png
+    - assets/scene/images/vector-Ejv.png
+    - assets/scene/images/pricipe105x105-1-2GL.png
+    - assets/scene/images/vector-4CC.png
+    - assets/scene/images/pricipe105x105-1-inY.png
+    - assets/scene/images/vector-3HN.png
+    - assets/scene/images/vector-7me.png
+    - assets/scene/images/rectangle-10-bH6.png
+    - assets/scene/images/rectangle-59-bg-5At.png
+    - assets/scene/images/vector-L8k.png
+    - assets/scene/images/pricipe105x105-1-TDN.png
+    - assets/scene/images/pricipe105x105-1-8yi.png
+    - assets/scene/images/vector-bgx.png
+    - assets/scene/images/vector-gY4.png
+    - assets/scene/images/vector-7RE.png
+    - assets/scene/images/vector-rCL.png
+    - assets/scene/images/vector-Jma.png
+    - assets/scene/images/vector-8hz.png
+    - assets/scene/images/pricipe105x105-1-v1z.png
+    - assets/scene/images/icon1.png
+    - assets/scene/images/icon2.png
+    - assets/scene/images/icon3.png
+    - assets/scene/images/icon4.png
+    - assets/scene/images/icon5.png
+    - assets/scene/images/it.png
+    - assets/scene/images/en.png
+    - assets/scene/images/connection_failed.png
+    - assets/scene/images/Logo_esteso_CityWander.png
+    - assets/scene/images/fotocamera_imgrecognition.png
+    - assets/scene/images/fotocamera_imgrecognition2.png
+    - assets/scene/images/fotocamera_imgrecognition3.png
+    - assets/scene/images/oi-circle-add.png
+    - assets/scene/images/oi-home.png
+    - assets/scene/images/oi-user.png
+    - assets/scene/images/icone-archivia.png
+    - assets/scene/images/icone-bqp.png
+    - assets/scene/images/QRcode.png
+    - assets/scene/images/QRcode2.png
+    - assets/scene/images/image_recognition_background.jpeg
+    - assets/scene/images/image-recognition-bg.jpg
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages

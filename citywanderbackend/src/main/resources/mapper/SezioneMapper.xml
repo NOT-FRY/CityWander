@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="it.itsvil.citywanderbackend.mapper.SezioneMapper">
+    <resultMap id="SezioneMapper" type="it.itsvil.citywanderbackend.dto.SezioneDto">
+        <result property="id" column="id"/>
+        <result property="descrizione" column="descrizione"/>
+        <result property="foto" column="foto"/>
+        <result property="idTappa" column="idTappa"/>
+        <result property="titolo" column="titolo"/>
+        <result property="numero" column="numero"/>
+    </resultMap>
+
+
+    <select id="findSezioniByTappaId" parameterType="java.lang.Long" resultMap="SezioneMapper" resultType="java.util.List">
+        SELECT *
+        FROM public.sezione
+        WHERE idTappa = #{idTappa}
+    </select>
+
+</mapper>

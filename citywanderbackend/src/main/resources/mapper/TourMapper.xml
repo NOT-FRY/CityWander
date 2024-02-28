@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="it.itsvil.citywanderbackend.mapper.TourMapper">
+    <resultMap id="TourMapper" type="it.itsvil.citywanderbackend.dto.TourDto">
+        <result property="id" column="id"/>
+        <result property="stato" column="stato"/>
+        <result property="username" column="username"/>
+        <result property="numeroGiorni" column="numeroGiorni"/>
+        <result property="dataGenerazione" column="dataGenerazione"/>
+    </resultMap>
+
+    <insert id="saveTour" parameterType="it.itsvil.citywanderbackend.dto.TourDto">
+        INSERT INTO public.tour
+            (id,stato,username,numeroGiorni,dataGenerazione)
+        VALUES
+            ( nextval('tour_id_seq'), #{stato}, #{username}, #{numeroGiorni}, #{dataGenerazione})
+    </insert>
+
+    <select id="getNextTourId" resultType="java.lang.Long">
+        SELECT nextval('tour_id_seq')
+    </select>
+
+    <select id="findTourByUsername" parameterType="java.lang.String" resultMap="TourMapper" resultType="java.util.List">
+        SELECT *
+        FROM public.tour
+        WHERE username = #{username}
+    </select>
+
+    <select id="findTourById" parameterType="java.lang.Long" resultMap="TourMapper" resultType="it.itsvil.citywanderbackend.dto.TourDto">
+        SELECT *
+        FROM public.tour
+        WHERE id = #{id}
+    </select>
+
+    <update id="updateTourState" parameterType="it.itsvil.citywanderbackend.dto.TourDto">
+        update public.tour
+        set stato = #{stato}
+        where id = #{id}
+    </update>
+
+    <delete id = "deleteTour" parameterType = "java.lang.Long">
+        DELETE from public.tour WHERE id = #{id};
+    </delete>
+
+</mapper>

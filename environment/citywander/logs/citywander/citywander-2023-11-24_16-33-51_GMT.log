@@ -1,0 +1,17 @@
+2023-11-24 16:33:52.583 GMT | main | INFO | org.springframework.boot.StartupInfoLogger.logStarting:55 | Starting CityWanderBackend v1.0 using Java 17-ea on 9693f6f504a4 with PID 1 (/app/app.jar started by root in /)
+2023-11-24 16:33:52.598 GMT | main | INFO | org.springframework.boot.SpringApplication.logStartupProfileInfo:645 | No active profile set, falling back to 1 default profile: "default"
+2023-11-24 16:33:56.027 GMT | main | INFO | org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn:132 | Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2023-11-24 16:33:56.450 GMT | main | INFO | org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn:201 | Finished Spring Data repository scanning in 345 ms. Found 1 MongoDB repository interfaces.
+2023-11-24 16:33:59.380 GMT | main | INFO | org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize:108 | Tomcat initialized with port(s): 8080 (http)
+2023-11-24 16:33:59.467 GMT | main | INFO | org.apache.juli.logging.DirectJDKLog.log:173 | Initializing ProtocolHandler ["http-nio-8080"]
+2023-11-24 16:33:59.469 GMT | main | INFO | org.apache.juli.logging.DirectJDKLog.log:173 | Starting service [Tomcat]
+2023-11-24 16:33:59.471 GMT | main | INFO | org.apache.juli.logging.DirectJDKLog.log:173 | Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-11-24 16:33:59.855 GMT | main | INFO | org.apache.juli.logging.DirectJDKLog.log:173 | Initializing Spring embedded WebApplicationContext
+2023-11-24 16:33:59.856 GMT | main | INFO | org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext:290 | Root WebApplicationContext: initialization completed in 7009 ms
+2023-11-24 16:34:01.615 GMT | main | INFO | com.mongodb.diagnostics.logging.SLF4JLogger.info:71 | Cluster created with settings {hosts=[mongo-database:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2023-11-24 16:34:02.031 GMT | cluster-ClusterId{value='6560d0798f7fdf4e53faa80c', description='null'}-mongo-database:27017 | INFO | com.mongodb.diagnostics.logging.SLF4JLogger.info:71 | Opened connection [connectionId{localValue:2, serverValue:26}] to mongo-database:27017
+2023-11-24 16:34:02.031 GMT | cluster-rtt-ClusterId{value='6560d0798f7fdf4e53faa80c', description='null'}-mongo-database:27017 | INFO | com.mongodb.diagnostics.logging.SLF4JLogger.info:71 | Opened connection [connectionId{localValue:1, serverValue:27}] to mongo-database:27017
+2023-11-24 16:34:02.032 GMT | cluster-ClusterId{value='6560d0798f7fdf4e53faa80c', description='null'}-mongo-database:27017 | INFO | com.mongodb.diagnostics.logging.SLF4JLogger.info:71 | Monitor thread successfully connected to server with description ServerDescription{address=mongo-database:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=140033421}
+2023-11-24 16:34:10.048 GMT | main | INFO | org.apache.juli.logging.DirectJDKLog.log:173 | Starting ProtocolHandler ["http-nio-8080"]
+2023-11-24 16:34:10.160 GMT | main | INFO | org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start:220 | Tomcat started on port(s): 8080 (http) with context path '/citywanderbackend'
+2023-11-24 16:34:10.190 GMT | main | INFO | org.springframework.boot.StartupInfoLogger.logStarted:61 | Started CityWanderBackend in 19.805 seconds (JVM running for 22.916)

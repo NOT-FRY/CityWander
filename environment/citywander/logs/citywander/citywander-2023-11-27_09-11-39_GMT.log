@@ -1,0 +1,21 @@
+2023-11-27 09:11:40.241 GMT | main | INFO | org.springframework.boot.StartupInfoLogger.logStarting:55 | Starting CityWanderBackend v1.0 using Java 17-ea on 9693f6f504a4 with PID 1 (/app/app.jar started by root in /)
+2023-11-27 09:11:40.249 GMT | main | INFO | org.springframework.boot.SpringApplication.logStartupProfileInfo:645 | No active profile set, falling back to 1 default profile: "default"
+2023-11-27 09:11:42.827 GMT | main | INFO | org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn:132 | Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2023-11-27 09:11:42.991 GMT | main | INFO | org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn:201 | Finished Spring Data repository scanning in 145 ms. Found 1 MongoDB repository interfaces.
+2023-11-27 09:11:44.708 GMT | main | INFO | org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize:108 | Tomcat initialized with port(s): 8080 (http)
+2023-11-27 09:11:44.739 GMT | main | INFO | org.apache.juli.logging.DirectJDKLog.log:173 | Initializing ProtocolHandler ["http-nio-8080"]
+2023-11-27 09:11:44.740 GMT | main | INFO | org.apache.juli.logging.DirectJDKLog.log:173 | Starting service [Tomcat]
+2023-11-27 09:11:44.741 GMT | main | INFO | org.apache.juli.logging.DirectJDKLog.log:173 | Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-11-27 09:11:44.950 GMT | main | INFO | org.apache.juli.logging.DirectJDKLog.log:173 | Initializing Spring embedded WebApplicationContext
+2023-11-27 09:11:44.950 GMT | main | INFO | org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext:290 | Root WebApplicationContext: initialization completed in 4552 ms
+2023-11-27 09:11:46.377 GMT | main | INFO | com.mongodb.diagnostics.logging.SLF4JLogger.info:71 | Cluster created with settings {hosts=[mongo-database:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2023-11-27 09:11:46.734 GMT | cluster-ClusterId{value='65645d522651a6632c578414', description='null'}-mongo-database:27017 | INFO | com.mongodb.diagnostics.logging.SLF4JLogger.info:71 | Opened connection [connectionId{localValue:1, serverValue:46}] to mongo-database:27017
+2023-11-27 09:11:46.734 GMT | cluster-rtt-ClusterId{value='65645d522651a6632c578414', description='null'}-mongo-database:27017 | INFO | com.mongodb.diagnostics.logging.SLF4JLogger.info:71 | Opened connection [connectionId{localValue:2, serverValue:47}] to mongo-database:27017
+2023-11-27 09:11:46.734 GMT | cluster-ClusterId{value='65645d522651a6632c578414', description='null'}-mongo-database:27017 | INFO | com.mongodb.diagnostics.logging.SLF4JLogger.info:71 | Monitor thread successfully connected to server with description ServerDescription{address=mongo-database:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=94142066}
+2023-11-27 09:11:50.837 GMT | main | INFO | org.apache.juli.logging.DirectJDKLog.log:173 | Starting ProtocolHandler ["http-nio-8080"]
+2023-11-27 09:11:50.874 GMT | main | INFO | org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start:220 | Tomcat started on port(s): 8080 (http) with context path '/citywanderbackend'
+2023-11-27 09:11:50.895 GMT | main | INFO | org.springframework.boot.StartupInfoLogger.logStarted:61 | Started CityWanderBackend in 11.835 seconds (JVM running for 13.802)
+2023-11-27 09:14:22.301 GMT | http-nio-8080-exec-3 | INFO | org.apache.juli.logging.DirectJDKLog.log:173 | Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-27 09:14:22.302 GMT | http-nio-8080-exec-3 | INFO | org.springframework.web.servlet.FrameworkServlet.initServletBean:525 | Initializing Servlet 'dispatcherServlet'
+2023-11-27 09:14:22.304 GMT | http-nio-8080-exec-3 | INFO | org.springframework.web.servlet.FrameworkServlet.initServletBean:547 | Completed initialization in 2 ms
+2023-11-27 09:14:23.362 GMT | http-nio-8080-exec-2 | INFO | org.springdoc.api.AbstractOpenApiResource.getOpenApi:355 | Init duration for springdoc-openapi is: 577 ms

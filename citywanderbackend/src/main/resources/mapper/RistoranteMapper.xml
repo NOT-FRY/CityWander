@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="it.itsvil.citywanderbackend.mapper.RistoranteMapper">
+    <resultMap id="RistoranteMapper" type="it.itsvil.citywanderbackend.dto.RistoranteDto">
+        <result property="id_ristorante" column="id_ristorante"/>
+        <result property="fk_esercente" column="fk_esercente"/>
+        <result property="nome" column="nome"/>
+        <result property="indirizzo" column="indirizzo"/>
+        <result property="descrizione" column="descrizione"/>
+        <result property="punteggio" column="punteggio"/>
+        <result property="menu" column="menu"/>
+        <result property="foto" column="foto"/>
+        <result property="coordinate" column="coordinate"/>
+    </resultMap>
+
+    <select id="getNextId" resultType="java.lang.Long">
+        SELECT nextval('ristorante_id_ristorante_seq')
+    </select>
+
+    <select id="findRistoranteById" parameterType="java.lang.Long" resultMap="RistoranteMapper">
+        SELECT *
+        FROM public.ristorante
+        WHERE id_ristorante=#{id}
+    </select>
+
+    <select id="findRistoranteByName" parameterType="java.lang.String" resultMap="RistoranteMapper">
+        SELECT *
+        FROM public.ristorante
+        WHERE nome=#{nome}
+    </select>
+
+    <insert id="saveRistorante" parameterType="it.itsvil.citywanderbackend.dto.RistoranteDto">
+        insert into public.ristorante (id_ristorante, fk_esercente, nome, indirizzo, descrizione, punteggio)
+        values (nextval('ristorante_id_ristorante_seq'),#{fk_esercente},#{nome},#{indirizzo},#{descrizione},#{punteggio})
+    </insert>
+
+    <select id="findRistorantiByUsername" parameterType="java.lang.String" resultMap="RistoranteMapper" resultType="java.util.List">
+        SELECT *
+        FROM public.ristorante
+        WHERE fk_esercente=#{username}
+    </select>
+
+    <update id="updateRistorante" parameterType="it.itsvil.citywanderbackend.dto.RistoranteDto">
+        UPDATE public.ristorante
+        SET nome = #{nome},indirizzo = #{indirizzo},descrizione = #{descrizione},punteggio = #{punteggio},menu = #{menu}
+        WHERE id_ristorante= #{id_ristorante}
+    </update>
+
+    <delete id = "deleteRistorante" parameterType = "java.lang.Long">
+        DELETE from public.ristorante WHERE id_ristorante = #{id};
+    </delete>
+
+    <select id="findTopRistoranti" parameterType="java.lang.Integer" resultMap="RistoranteMapper">
+        SELECT *
+        FROM public.ristorante
+        ORDER BY public.ristorante.punteggio DESC
+        LIMIT #{limit}
+    </select>
+
+</mapper>

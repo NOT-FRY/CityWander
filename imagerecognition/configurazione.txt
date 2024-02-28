@@ -1,0 +1,14 @@
+python.exe -m pip install --upgrade pip
+pip install numpy
+pip install tensorflow-directml-plugin
+pip install livelossplot
+pip install Ipython
+pip install scipy
+pip install opencv-python
+pip install -U scikit-learn
+pip install seaborn
+pip install imagecodecs
+pip install pillow
+pip install pillow_heif
+pip install flask
+pip install flask_cors

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="it.itsvil.citywanderbackend.mapper.ProvaMapper">
+    <resultMap id="ProvaMapper" type="it.itsvil.citywanderbackend.dto.ProvaDto">
+        <result property="n_id" column="n_id"/>
+        <result property="t_example_code" column="n_id"/>
+        <result property="d_data" column="t_system"/>
+        <result property="b_validate" column="t_version"/>
+    </resultMap>
+
+    <select id="getProvaById" parameterType="java.lang.String" resultMap="ProvaMapper">
+        SELECT *
+        FROM public.t_table
+        WHERE n_id=#{n_id}
+    </select>
+</mapper>

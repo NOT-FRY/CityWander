@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                pattern="%d{yyyy-MM-dd HH:mm:ss.SSS z} | %t | %level | %class.%method:%line | %msg%n" />
+        </Console>
+
+        <File name="LogFile" fileName="/app/logs/citywander-${date:yyyy-MM-dd_HH-mm-ss_z}.log">
+            <PatternLayout
+                pattern="%d{yyyy-MM-dd HH:mm:ss.SSS z} | %t | %level | %class.%method:%line | %msg%n" />
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <Root level="all">
+            <AppenderRef ref="Console" level="info" />
+            <AppenderRef ref="LogFile" level="info" />
+        </Root>
+    </Loggers>
+</Configuration>

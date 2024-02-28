@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="it.itsvil.citywanderbackend.mapper.UserMapper">
+    <resultMap id="UserMapper" type="it.itsvil.citywanderbackend.dto.UserDto">
+        <result property="username" column="username"/>
+        <result property="nome" column="nome"/>
+        <result property="cognome" column="cognome"/>
+        <result property="email" column="email"/>
+        <result property="password" column="password"/>
+        <result property="lingua" column="lingua"/>
+        <result property="ruolo" column="ruolo"/>
+        <result property="numeroGiorni" column="numeroGiorni"/>
+        <result property="mezzoTrasporto" column="mezzoTrasporto"/>
+        <result property="punti" column="punti"/>
+        <result property="dataNascita" column="dataNascita"/>
+        <result property="genere" column="genere"/>
+        <result property="telefono" column="telefono"/>
+        <result property="partitaIva" column="partitaIva"/>
+        <result property="viaAlloggio" column="viaAlloggio"/>
+        <result property="coordinateAlloggio" column="coordinateAlloggio"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="it.itsvil.citywanderbackend.dto.UserDto"  useGeneratedKeys="false" keyProperty="username" keyColumn="username">
+        INSERT INTO public.utente
+            (nome,cognome,username,password,email,lingua,ruolo,punti,dataNascita,genere,telefono, viaAlloggio, coordinateAlloggio)
+        VALUES
+            ( #{nome}, #{cognome}, #{username}, #{password}, #{email}, #{lingua}, #{ruolo}, #{punti},#{dataNascita}, #{genere}, #{telefono}, #{viaAlloggio}, #{coordinateAlloggio})
+    </insert>
+
+    <insert id="insertEsercente" parameterType="it.itsvil.citywanderbackend.dto.UserDto"  useGeneratedKeys="false" keyProperty="username" keyColumn="username"  >
+        INSERT INTO public.utente
+            (nome,cognome,username,password,email,lingua,ruolo,dataNascita,telefono,partitaIva)
+        VALUES
+            ( #{nome}, #{cognome}, #{username}, #{password}, #{email},#{lingua}, #{ruolo}, #{dataNascita}, #{telefono}, #{partitaIva})
+    </insert>
+
+    <select id="findByEmail" parameterType="java.lang.String" resultMap="UserMapper" resultType="it.itsvil.citywanderbackend.dto.UserDto">
+        SELECT *
+        FROM public.utente
+        WHERE email = #{email}
+    </select>
+
+    <select id="findByUsername" parameterType="java.lang.String" resultMap="UserMapper" resultType="it.itsvil.citywanderbackend.dto.UserDto">
+        SELECT *
+        FROM public.utente
+        WHERE username = #{username}
+    </select>
+
+    <update id="updateUser" parameterType="it.itsvil.citywanderbackend.dto.UserDto">
+        UPDATE public.utente
+        SET nome = #{nome},username = #{username},cognome = #{cognome},email = #{email},password = #{password},lingua = #{lingua},ruolo = #{ruolo},
+            numeroGiorni = #{numeroGiorni},mezzoTrasporto = #{mezzoTrasporto},punti = #{punti},dataNascita = #{dataNascita},genere = #{genere},
+            telefono = #{telefono},partitaIva = #{partitaIva},viaAlloggio = #{viaAlloggio},coordinateAlloggio = #{coordinateAlloggio}
+        WHERE utente.email = #{email}
+    </update>
+
+</mapper>

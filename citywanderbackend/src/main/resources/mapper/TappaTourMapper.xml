@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="it.itsvil.citywanderbackend.mapper.TappaTourMapper">
+    <resultMap id="TourMapper" type="it.itsvil.citywanderbackend.dto.TourDto">
+        <result property="id" column="id"/>
+        <result property="stato" column="stato"/>
+        <result property="username" column="username"/>
+    </resultMap>
+
+    <resultMap id="TappaMapper" type="it.itsvil.citywanderbackend.dto.TappaDto">
+        <result property="id" column="id"/>
+        <result property="descrizione" column="descrizione"/>
+        <result property="nome" column="nome"/>
+        <result property="coordinate" column="coordinate"/>
+    </resultMap>
+
+    <insert id="saveTappaTour">
+        INSERT INTO public.tappaTour
+            (idTour,idTappa,isCompletata)
+        VALUES
+            ( #{idTour}, #{idTappa}, #{isCompletata})
+    </insert>
+
+    <select id="findTappeByTourId" parameterType="java.lang.Long" resultMap="TappaMapper" resultType="java.util.List">
+        SELECT *
+        FROM tappa
+        WHERE tappa.id IN(SELECT idTappa FROM tappaTour WHERE idTour=#{idTour});
+    </select>
+
+    <select id="findTappeNonCompletateByTourId" parameterType="java.lang.Long" resultMap="TappaMapper" resultType="java.util.List">
+        SELECT *
+        FROM tappa
+        WHERE tappa.id IN(SELECT idTappa FROM tappaTour WHERE idTour=#{idTour} AND isCompletata=false);
+    </select>
+
+    <update id="setTappaTourCompletata" >
+        update public.tappaTour
+        set isCompletata = true
+        where idTour = #{idTour} AND idTappa = #{idTappa}
+    </update>
+
+
+</mapper>
