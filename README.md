@@ -1,92 +1,111 @@
 # CityWander
 
+CityWander è un' applicazione sviluppata durante il corso Enteprise Mobile Application Development dell'Università Degli
+Studi di Salerno, in collaborazione con l'azienda ITSvil.
 
+L’obiettivo di CityWander è quello di offrire un'esperienza turistica personalizzata e informativa a Salerno,
+che si adatti alle preferenze degli utenti e permetta di offrire una strutturazione culturale
+(tramite la creazione di tour guidati) facilmente fruibile.
 
-## Getting started
+## Autori
+- Di Lauro Francesco
+- Di Mario Marco
+- Arcangeli Giovanni
+- Campochiaro Fabiano
+## Funzionalità
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+ * **Gamification & Rewarding**:
+La gamification, tramite il Rewarding e l’utilizzo di un assistente virtuale,  è una metodologia che favorisce il
+coinvolgimento emotivo dell’utente
+ * **Geofencing**: Utilizzo del geofencing per fornire esperienze basate sulla posizione in tempo reale
+ * **Image Recognition**:  La capacità di riconoscere locali, semplicemente inquadrandoli, permettendo la fruizione di 
+dettagli e menù relativi al locale
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+# Architettura
+<img alt="architettura" src="./res/architettura.png"/></br>
 
-## Add your files
+L'applicazione è stata sviluppata con Flutter versione 3.13.6 ed è compatibile con i vari dispositivi mobili come Android e IOS.
+Entrambi i backend, sia quello in SpringBoot che quello su Flask, sono stati containerizzati utilizzando Docker,
+questo per far si che il back-end della nostra applicazione possa risiedere su qualsiasi macchina, e possa essere scalabile.
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+## Backend
+Il back-end dell'applicazione è realizzato in Spring Boot.
+È stato utilizzato il framework MyBatis per il supporto alla persistenza su PostgreSQL.
+Il controller layer del back-end fornisce API RESTful, che consentono di comunicare con l'applicazione Flutter mediante oggetti JSON.
+Le API REST sono state testate grazie al tool Swagger.
+
+## Frontend
+Per le interfacce abbiamo realizzato delle bozze tramite Figma.
+Per il passaggio da Figma a Flutter abbiamo utilizzato Function 12, un convertitore che ci ha permesso di velocizzare il passaggio tra i due programmi.
+Per la realizzazione di loghi ed immagini abbiamo sfruttato Canva che ci ha permesso di realizzare grafiche come quelle del Principe Arechi.
+
+## Web scraper
+Il web scraper per estrarre informazioni sui ristoranti di Salerno da TripAdvisor è stato creato in Python utilizzando
+la libreria Selenium. La combinazione di Python e Selenium offre flessibilità e automazione per ottenere varie informazioni sui ristoranti.
+Al momento, la tecnologia è stata impiegata per popolare il database iniziale e per futuri inserimenti automatici di locali da parte degli esercenti.
+Per migliorare i dati raccolti, è stato utilizzato un algoritmo di geocoding basato su Geoapify per convertire gli indirizzi dei ristoranti in coordinate geografiche.
+
+## AI Image recognition
+Il modulo di image recognition dell'app usa il transfer learning su ResNet50 per riconoscere le insegne dei ristoranti di Salerno.
+Viene applicato il fine tuning per migliorare le performance e fare previsioni su immagini di input in formato .jpg. TensorFlow, Keras e Flask sono le principali librerie utilizzate.
+Questo modulo di Image Recognition è stato integrato all’interno di un server Flask.
+L'applicazione Flutter caricherà dunque l'immagine sul server per il riconoscimento usando un modello preaddestrato, restituendo infine la previsione.
+
+# Installazione
+
+## Backend
+Compilare progetto utilizzando Maven e Java 17 (clean & install da Maven e il jar viene direttamente portato sull'environment)
+
+Avviare i container Docker preconfigurati:
 
 ```
-cd existing_repo
-git remote add origin https://gitlab.itsvil.it/formazione1/esercitazione/citywander.git
-git branch -M main
-git push -uf origin main
+docker compose up -d
+``` 
+
+Se è necessario ricreare i container (es. query di inizializzazione PostgreSQL cambiate):
+
+```
+docker compose down -v
+``` 
+
+Una volta avviati i container, gli endpoint REST potranno essere testati tramite swagger:
+
+Swagger -> http://localhost:13004/citywanderbackend/
+
+DB -> http://localhost:13001/browser/
+
+## Frontend
+
+Flutter versione 3.13.6
+```
+flutter pub get
+flutter pub upgrade
+```
+e avviare main.dart su emulatore o smartphone fisico.
+
+## Image Recognition Backend
+1) installare tutte le dipendenze richieste (Python v3.8)
+2) creare l'immagine di docker:
+```
+docker image build -t imagerecognition .
+```
+3) run del container:
+```
+docker run -p 5000:5000 -d --name AIRecognition imagerecognition
 ```
 
-## Integrate with your tools
+L'API REST dell'image recognition (GET) prende come parametro (imageName) il nome di un'immagine, che dovrà essere stata caricata
 
-- [ ] [Set up project integrations](https://gitlab.itsvil.it/formazione1/esercitazione/citywander/-/settings/integrations)
+in precedenza sul server (tramite l'API uploadImage) , e restituisce il nome del ristorante riconosciuto:
 
-## Collaborate with your team
+http://localhost:5000/imageRecognition?imageName=prova1.jpg
+```
+{"recognizedImage":"Ingordo"}
+```
+API per caricare un' immagine sul server:
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+Richiesta POST a
 
-## Test and Deploy
+http://localhost:5000/uploadImage, con un parametro nel body 'image' che è il file effettivo dell'immagine.
+Restituisce il nome del file appena caricato
 
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
